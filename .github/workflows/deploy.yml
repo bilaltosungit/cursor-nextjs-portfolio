@@ -33,7 +33,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm list
         env:
           CI: true
 
@@ -41,9 +43,14 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build
-        run: npm run deploy
+        run: |
+          echo "Starting build process..."
+          npm run deploy
+          echo "Build completed. Checking output directory..."
+          ls -la out/
         env:
           NEXT_PUBLIC_BASE_PATH: /portfolio
+          NODE_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
