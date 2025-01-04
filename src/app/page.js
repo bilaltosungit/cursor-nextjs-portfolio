@@ -1,30 +1,19 @@
 'use client';
 
-import { Box, Container, Grid, Drawer, List, ListItemText, IconButton, Tooltip } from '@mui/material';
+import { Box, Container, Grid, Tooltip } from '@mui/material';
 import { resumeData } from '@/data/resume';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useTheme } from './ThemeContext';
 import ProjectCard from '@/components/ProjectCard';
 import ExperienceCard from '@/components/ExperienceCard';
 import {
-  StyledNavbar,
-  StyledMobileMenu,
   GradientText,
   HeroSection,
-  NavContainer,
-  DesktopNav,
-  NavButton,
-  StyledDrawer,
-  DrawerHeader,
   HeroContainer,
   HeroContent,
   HeroTitle,
@@ -50,17 +39,12 @@ import {
   ContactContainer,
   ContactItem,
   ContactLink,
-  CursorBadgeContainer,
-  CursorBadgeText,
-  StyledDrawerListItem,
   StyledSkillsSection,
   StyledSkillChip,
   BackToTopButton,
 } from './styles';
-import { useTheme } from './ThemeContext';
 
 export default function Home() {
-  const router = useRouter();
   const { personalInfo, skills, experience, projects, education, additionalSkills } = resumeData;
   const [showBackToTop, setShowBackToTop] = useState(false);
   const { isDarkMode } = useTheme();
@@ -315,19 +299,6 @@ export default function Home() {
           <KeyboardArrowUpIcon />
         </BackToTopButton>
       )}
-
-      {/* Cursor Badge */}
-      <CursorBadgeContainer
-        component="a"
-        href="https://cursor.sh"
-        target="_blank"
-        rel="noopener noreferrer"
-        isDarkMode={isDarkMode}
-      >
-        <CursorBadgeText isDarkMode={isDarkMode}>
-          ⚡ Built with Cursor
-        </CursorBadgeText>
-      </CursorBadgeContainer>
     </main>
   );
 } 

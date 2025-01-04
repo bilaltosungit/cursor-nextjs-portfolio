@@ -28,14 +28,6 @@ export default function Navbar() {
     setMobileOpen(!mobileOpen);
   };
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileOpen(false);
-    }
-  };
-
   const handleNavigation = (item) => {
     if (item === 'blog') {
       router.push('/blog');
