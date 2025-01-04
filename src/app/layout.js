@@ -8,34 +8,28 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  metadataBase: new URL('http://localhost:3000'),
   title: 'Bilal Tosun | Software Developer',
   description: 'Software Developer with expertise in React, Next.js, Angular, and modern web technologies. Experienced in front-end development, UI/UX, and building responsive web applications.',
   keywords: 'Software Developer, React Developer, Next.js, Angular, Frontend Developer, Web Development, JavaScript, TypeScript',
+  manifest: '/portfolio/site.webmanifest',
+  metadataBase: new URL('https://bilaltosungit.github.io/portfolio'),
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: '/',
-    siteName: 'Bilal Tosun Portfolio',
     title: 'Bilal Tosun | Software Developer',
     description: 'Software Developer with expertise in React, Next.js, Angular, and modern web technologies.',
-    images: [
-      {
-        url: '/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Bilal Tosun Portfolio',
-      },
-    ],
+    url: 'https://bilaltosungit.github.io/portfolio',
+    siteName: 'Bilal Tosun Portfolio',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
+    creator: '@bilaltosun',
     title: 'Bilal Tosun | Software Developer',
     description: 'Software Developer with expertise in React, Next.js, Angular, and modern web technologies.',
-    images: ['/images/og-image.jpg'],
-    creator: '@bilaltosun',
   },
-  manifest: '/site.webmanifest',
+  icons: {
+    icon: '/portfolio/favicon.ico',
+  },
 };
 
 export const viewport = {
