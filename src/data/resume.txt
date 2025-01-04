@@ -1,0 +1,157 @@
+BİLAL TOSUN
+S O F T W A R E D E V E L O P E R
+I am a Software Developer worked
+in different parts since 2020.
+I started my career as a Software
+QA Engineer. I continued to work
+as a Front End Developer. During
+my career I work within scrum
+methodology.
+As a Front End developer, I
+collaborate closely with backend
+developers, product owners, test
+teams and QAs on improving
+projects.
+I actively learn new techs and
+follow communities to bring a
+fresh perspective and innovation
+to my work.
+Eskişehir Osmangazi
+University
+Computer Engineering, 2018
+E D U C A T I O N
+Piton Technology(On-site), Front End Developer( Angular)
+Writing cross-browser compatible code with TypeScript and
+HTML5
+Using CSS, Bootstrap and themes for web applications
+Pixel perfect web design based on wireframe
+Using Angular as a framework and NgRx for state management
+Testing API methods from Swagger and Postman,
+Using Git for versioning projects
+Startup culture
+DECEMBER 2019- JULY 2020
+Piton Technology (Eskişehir), Software QA Engineer
+Monitoring and logging testing activities, test results with UI
+automation
+Monitoring vulnerabilities and code quality in SonarQube with
+static code analyzing
+Integrating SonarQube and Gitlab in Jenkins
+Writing and developing detailed e2e (end-to-end) test cases
+Writing and executing automated test scripts for web
+applications and using open source tools such as Selenium,
+Protractor.
+Executing e2e scripts to simulate the real user scenario and
+controls the validations.
+MARCH 2019 - NOVEMBER 2019
+W O R K E X P E R I E N C E
+ETIYA (Remote), Front End Developer ( Angular)
+Worked on international customers and team members (
+Canada, Ukraine )
+Used Angular as a framework and NGXS for state management
+Atomic Design pattern
+Pixel perfect web design based on the ui-kit and customer
+feedback
+Pull request and code review culture
+Bitbucket, sourcetree, git for versioning projects
+Send data to Google Analytics via GTM, UTM, and Hotjar
+SEPTEMBER 2020- OCTOBER 2021
+Gelir İdaresi Başkanlığı (Hybrid),
+Front End Developer( React, Nextjs)
+OCTOBER 2021 - PRESENT
+Working on
+“Dijital Vergi Dairesi”
+project
+Developing front-end web projects
+Using React, Nextjs in two different projects with JavaScript,
+HTML5 and CSS
+Material UI for UI elements and working with UX team
+Testing API methods from Swagger and Postman
+Using git for VCS
+Pull request and code review culture
+bilaltosun7@gmail.com
++90 506 509 82 48
+/bilaltosun
+C O N T A C T
+Tanzania Railways Corporations (Tanzania), Ticketing System
+( Angular - NgRx)
+Web, mobile and WPF platform applications are developed to
+manage the train ticketing system.
+This project has five different platforms and I worked in two of
+them "Online Ticketing System (Web) " and "Admin Panel (Web)"
+We designed web platforms with Angular and used NgRx for state
+management to perform.
+P R O J E C T S
+BURULAŞ (Bursa), Fleet Management System
+(Angular - OpenLayers)
+Web, Platform designed and developed to track Burulaş's fleet,
+manage headway and violation by Control Center.
+We designed a web platform with Angular.
+FEBRUARY 2019 - APRIL 2020
+Boğaziçi Proje A.Ş (İstanbul), Personel and Project Tracking System
+( Angular ) JUNE 2018 - FEBRUARY 20
+Web, Platform designed and developed to track Burulaş's fleet,
+manage headway and violation by Control Center.
+We designed a wen platform with Angular.
+Tools/ Technology
+Soft Skills
+Language Skills
+GitLab
+Jenkins
+VsCode, WebStorm
+SonarQube
+Selenium
+Protractor
+Bitbucket
+Sourctree
+JIRA
+Slack
+Adaptive
+Quick Learner
+Inquiring
+Team Member
+Strong Communication
+English
+Fluent in written
+Professional working
+proficiency
+ETIYA - Videotron’s Helix TV and Internet Service (Canada)
+( Angular - NGXS)
+Helix is a multi-device TV and Internet platform service that
+replaces Videotron
+’
+s legacy TV and Internet service.
+Helix allows users to use voice commands to search an integrated
+TV content catalog from multiple sources, like regulated TV and
+premium channels, YouTube, Netflix, and Club Illico (Videotron
+’
+s
+streaming service). Helix uses a hybrid cloud architecture that
+includes a 100% digital BSS supplied by Etiya
+NOVEMBER 2019 - PRESENT
+Frontend Technology
+JavaScript, TypeScript
+HTML, CSS
+React
+Angular
+Nextjs
+NgRx, NGXS
+NOVEMBER 2019 - PRESENT
+Republic of Turkey Revenue Administration, Digital Tax Office
+(React & Nextjs)
+Digital Tax Office combines the Administration's projects such as
+Interaktif Vergi Dairesi, Defter-Beyan Sistemi, Hazır Beyan Sistemi,
+e-Arşiv Fatura etc.
+The aims of the projects are to collect all transactions of GİB in a
+single application
+Redesigning interfaces and user flows to provide user friendly
+single platform
+Building a modern front-end architecture
+Creating reusable components consider all projects UI elements
+Industrial Skills
+Front End Development
+UI Automation Test
+Analysis & Reporting
+Scrum, Agile
+Test case, use case, user
+guide
+JANUARY 2022 - PRESENT

@@ -1,0 +1,16 @@
+{
+  "name": "Bilal Tosun Portfolio",
+  "short_name": "BT Portfolio",
+  "description": "Software Developer Portfolio of Bilal Tosun",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+} 
