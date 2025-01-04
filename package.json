@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && touch out/.nojekyll"
+    "deploy": "rm -rf out && next build && touch out/.nojekyll"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
