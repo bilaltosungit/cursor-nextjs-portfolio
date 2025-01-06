@@ -375,6 +375,7 @@ export const ProjectsSection = styled('div', {
 export const ProjectCard = styled(Paper)(({ isDarkMode }) => ({
   padding: '40px',
   height: '100%',
+  minHeight: '300px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',
@@ -413,6 +414,11 @@ export const ProjectDescription = styled(Typography, {
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
   marginBottom: '16px',
   lineHeight: 1.6,
+  overflow: 'hidden',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical',
+  textOverflow: 'ellipsis',
 }));
 
 export const ProjectTechChip = styled(Chip, {

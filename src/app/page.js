@@ -152,7 +152,7 @@ export default function Home() {
           <Grid container spacing={3}>
             {projects.map((project, index) => (
               <Grid item xs={12} sm={6} key={index}>
-                <ProjectCard project={project} index={index} isDarkMode={isDarkMode} />
+                <ProjectCard project={project} isDarkMode={isDarkMode} />
               </Grid>
             ))}
           </Grid>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, Chip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import AnimatedSection from './AnimatedSection';
 
@@ -11,10 +11,12 @@ const StyledPaper = styled(Paper, {
   display: 'flex',
   flexDirection: 'column',
   overflow: 'hidden',
-  transition: 'transform 0.3s ease-in-out',
+  transition: 'all 0.3s ease',
   background: isDarkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+  borderLeft: '4px solid #4ECDC4',
   '&:hover': {
     transform: 'translateY(-8px)',
+    borderLeft: '4px solid #FF3366',
     boxShadow: isDarkMode ? '0 8px 30px rgba(255,255,255,0.12)' : '0 8px 30px rgba(0,0,0,0.12)',
   },
 }));
@@ -50,8 +52,9 @@ const ContentContainer = styled(Box, {
 const ProjectTitle = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'isDarkMode',
 })(({ isDarkMode }) => ({
+  fontSize: '1.5rem',
   fontWeight: 600,
-  marginBottom: '8px',
+  marginBottom: '12px',
   color: isDarkMode ? '#fff' : '#1a237e',
 }));
 
@@ -59,38 +62,58 @@ const ProjectDescription = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'isDarkMode',
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
-  marginBottom: '16px',
-  display: '-webkit-box',
-  WebkitLineClamp: 3,
-  WebkitBoxOrient: 'vertical',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
+  marginBottom: '24px',
+  fontSize: '0.95rem',
+  lineHeight: 1.6,
+  flex: 1,
 }));
 
-const getPlaceholderImage = (title) => {
-  const images = {
-    'Digital Tax Office': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2071&auto=format&fit=crop',
-    'Videotron\'s Helix TV and Internet Service': 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=2070&auto=format&fit=crop',
-    'Tanzania Railways Corporations Ticketing System': 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
-    'BURULAŞ Fleet Management System': 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop',
-  };
-  return images[title] || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop';
-};
+const TechStack = styled(Box)({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '8px',
+  marginTop: 'auto',
+});
+
+const TechChip = styled(Chip)(({ isDarkMode }) => ({
+  backgroundColor: isDarkMode ? '#1E88E5' : '#e3f2fd',
+  color: isDarkMode ? '#fff' : '#1a237e',
+  '&:hover': {
+    backgroundColor: isDarkMode ? '#1565C0' : '#1a237e',
+    color: '#fff',
+    transform: 'translateY(-2px)',
+  },
+  transition: 'all 0.3s ease',
+}));
 
 const ProjectCard = ({ project, isDarkMode }) => {
   return (
     <AnimatedSection>
       <StyledPaper elevation={3} isDarkMode={isDarkMode}>
         <ImageContainer>
-          <img src={getPlaceholderImage(project.title)} alt={project.title} />
+          <img 
+            src={project.image} 
+            alt={project.title}
+            loading="lazy"
+          />
         </ImageContainer>
         <ContentContainer isDarkMode={isDarkMode}>
-          <ProjectTitle variant="h6" isDarkMode={isDarkMode}>
+          <ProjectTitle variant="h5" isDarkMode={isDarkMode}>
             {project.title}
           </ProjectTitle>
           <ProjectDescription isDarkMode={isDarkMode}>
             {project.description}
           </ProjectDescription>
+          <TechStack>
+            {project.technologies.map((tech, index) => (
+              <TechChip
+                key={index}
+                label={tech}
+                isDarkMode={isDarkMode}
+                size="small"
+              />
+            ))}
+          </TechStack>
         </ContentContainer>
       </StyledPaper>
     </AnimatedSection>
