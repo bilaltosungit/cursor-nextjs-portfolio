@@ -5,22 +5,14 @@ import { resumeData } from '@/data/resume';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState, useEffect } from 'react';
 import { useTheme } from './ThemeContext';
 import ProjectCard from '@/components/ProjectCard';
 import ExperienceCard from '@/components/ExperienceCard';
+import HeroSection from '@/components/HeroSection';
 import {
   GradientText,
-  HeroSection,
-  HeroContainer,
-  HeroContent,
-  HeroTitle,
-  HeroSubtitle,
-  HeroDescription,
-  SocialButtons,
-  SocialIconButton,
   SkillsPaper,
   SkillsTitle,
   SkillsContainer,
@@ -73,45 +65,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <Box component="section" id="about">
-        <HeroSection isDarkMode={isDarkMode}>
-          <HeroContainer>
-            <HeroContent container spacing={4}>
-              <Grid item xs={12} md={8}>
-                <HeroTitle variant="h2">
-                  {personalInfo.name}
-                </HeroTitle>
-                <HeroSubtitle variant="h4">
-                  {personalInfo.title}
-                </HeroSubtitle>
-                <HeroDescription variant="body1">
-                  {personalInfo.summary}
-                </HeroDescription>
-                <SocialButtons>
-                  <SocialIconButton 
-                    href={`mailto:${personalInfo.email}`}
-                  >
-                    <EmailIcon />
-                  </SocialIconButton>
-                  <SocialIconButton 
-                    href={`tel:${personalInfo.phone}`}
-                  >
-                    <PhoneIcon />
-                  </SocialIconButton>
-                  <SocialIconButton 
-                    href={resumeData.socialLinks.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkedInIcon />
-                  </SocialIconButton>
-                  <SocialIconButton>
-                    <LocationOnIcon />
-                  </SocialIconButton>
-                </SocialButtons>
-              </Grid>
-            </HeroContent>
-          </HeroContainer>
-        </HeroSection>
+        <HeroSection />
       </Box>
 
       {/* Skills Section with colorful cards */}
@@ -262,28 +216,33 @@ export default function Home() {
       {/* Contact Section */}
       <ContactSection id="contact" isDarkMode={isDarkMode}>
         <Container maxWidth="xl">
-          <ContactTitle variant="h3">Get in Touch</ContactTitle>
+          <ContactTitle variant="h3" isDarkMode={isDarkMode}>Get in Touch</ContactTitle>
           <ContactContainer>
-            <ContactItem>
-              <EmailIcon />
-              <ContactLink>
-                {personalInfo.email}
+            <ContactItem isDarkMode={isDarkMode}>
+              <ContactLink 
+                href={`mailto:${personalInfo.email}`}
+                aria-label="Email"
+              >
+                <EmailIcon sx={{ fontSize: '2rem' }} />
               </ContactLink>
             </ContactItem>
-            <ContactItem>
-              <PhoneIcon />
-              <ContactLink>
-                {personalInfo.phone}
+            <ContactItem isDarkMode={isDarkMode}>
+              <ContactLink 
+                href={`tel:${personalInfo.phone}`}
+                aria-label="Phone"
+              >
+                <PhoneIcon sx={{ fontSize: '2rem' }} />
               </ContactLink>
             </ContactItem>
-            <ContactItem>
-              <SocialIconButton
+            <ContactItem isDarkMode={isDarkMode}>
+              <ContactLink 
                 href={resumeData.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                <LinkedInIcon />
-              </SocialIconButton>
+                <LinkedInIcon sx={{ fontSize: '2rem' }} />
+              </ContactLink>
             </ContactItem>
           </ContactContainer>
         </Container>

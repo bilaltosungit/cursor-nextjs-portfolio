@@ -488,6 +488,11 @@ export const AdditionalSkillsCard = styled(Paper, {
   borderRadius: '8px',
   border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
   transition: 'all 0.3s ease',
+  '&:hover': {
+    transform: 'translateY(-4px)',
+    boxShadow: isDarkMode ? '0 8px 30px rgba(255,255,255,0.12)' : '0 8px 30px rgba(0,0,0,0.12)',
+    background: isDarkMode ? 'rgba(40, 40, 40, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+  },
 }));
 
 export const SkillsHeading = styled(Typography, {
@@ -527,10 +532,23 @@ export const ContactSection = styled('section', {
   shouldForwardProp: (prop) => prop !== 'isDarkMode',
 })(({ isDarkMode }) => ({
   padding: '80px 0',
-  background: isDarkMode 
-    ? 'linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%)'
-    : 'linear-gradient(135deg, #F8F9FA 0%, #E3F2FD 50%, #F5F5F5 100%)',
+  background: isDarkMode
+    ? 'linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%)'
+    : 'linear-gradient(135deg, #2563eb 0%, #db2777 100%)',
+  color: 'white',
   position: 'relative',
+  overflow: 'hidden',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: isDarkMode
+      ? 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%)'
+      : 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+  },
 }));
 
 export const ContactTitle = styled(Typography, {
@@ -538,54 +556,42 @@ export const ContactTitle = styled(Typography, {
 })(({ isDarkMode }) => ({
   fontSize: '2.5rem',
   fontWeight: 700,
-  marginBottom: '40px',
+  marginBottom: '2rem',
   textAlign: 'center',
   background: isDarkMode
-    ? 'linear-gradient(-45deg, #4ECDC4, #45B7D1, #FF3366, #FF6B6B)'
-    : 'linear-gradient(-45deg, #FF3366, #FF6B6B, #4ECDC4, #45B7D1)',
-  backgroundSize: '300% 300%',
-  animation: 'gradient 5s ease infinite',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  textShadow: isDarkMode ? '0 0 30px rgba(78, 205, 196, 0.3)' : 'none',
+    ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
+    : 'none',
+  WebkitBackgroundClip: isDarkMode ? 'text' : 'none',
+  WebkitTextFillColor: isDarkMode ? 'transparent' : '#ffffff',
 }));
 
-export const ContactContainer = styled(Box)(({ theme }) => ({
+export const ContactContainer = styled(Box)({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
   alignItems: 'center',
-  flexWrap: 'wrap',
-  gap: '32px',
-  padding: '0 16px',
-  [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
-    gap: '24px',
-  },
-}));
+  justifyContent: 'center',
+  gap: '3rem',
+  position: 'relative',
+  zIndex: 1
+});
 
-export const ContactItem = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
-})(({ isDarkMode }) => ({
+export const ContactItem = styled(Box)(({ isDarkMode }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '16px',
-  padding: '16px',
+  justifyContent: 'center',
+  transition: 'all 0.3s ease',
+}));
+
+export const ContactLink = styled('a')(({ isDarkMode }) => ({
+  color: isDarkMode ? '#90CAF9' : '#ffffff',
+  textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   transition: 'all 0.3s ease',
   '&:hover': {
     transform: 'translateY(-4px)',
-  },
-}));
-
-export const ContactLink = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
-})(({ isDarkMode }) => ({
-  color: isDarkMode ? '#90CAF9' : '#1E88E5',
-  fontSize: '1.1rem',
-  fontWeight: 500,
-  textDecoration: 'none',
-  '&:hover': {
-    color: isDarkMode ? '#64B5F6' : '#1565C0',
+    color: isDarkMode ? '#64B5F6' : '#e0e0e0',
   },
 }));
 

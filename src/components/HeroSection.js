@@ -1,15 +1,21 @@
 'use client';
 
 import { Box, Container, Typography, Button, Grid } from '@mui/material';
-import AnimatedSection from './AnimatedSection';
+import { useTheme } from '@/app/ThemeContext';
+import { resumeData } from '@/data/resume';
 
 export default function HeroSection() {
+  const { isDarkMode } = useTheme();
+  const { personalInfo } = resumeData;
+
   return (
     <Box sx={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      background: 'linear-gradient(135deg, #2563eb 0%, #db2777 100%)',
+      background: isDarkMode 
+        ? 'linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%)'
+        : 'linear-gradient(135deg, #2563eb 0%, #db2777 100%)',
       color: 'white',
       position: 'relative',
       overflow: 'hidden',
@@ -20,30 +26,63 @@ export default function HeroSection() {
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+        background: isDarkMode
+          ? 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%)'
+          : 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)',
       },
     }}>
       <Container>
         <Grid container spacing={4} alignItems="center">
-          <AnimatedSection delay={0.2}>
-            <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
               <Typography variant="h1" component="h1" gutterBottom sx={{
-                textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+                color: '#ffffff',
+                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                fontWeight: 600,
+                background: isDarkMode
+                  ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
+                  : 'none',
+                WebkitBackgroundClip: isDarkMode ? 'text' : 'none',
+                WebkitTextFillColor: isDarkMode ? 'transparent' : '#ffffff',
               }}>
-                Hi, I&apos;m [Your Name]
+                {personalInfo.name}
               </Typography>
-              <Typography variant="h4" gutterBottom sx={{ opacity: 0.9 }}>
-                Frontend Developer
+              <Typography variant="h4" gutterBottom sx={{ 
+                opacity: 0.9,
+                color: isDarkMode ? '#90CAF9' : '#ffffff',
+                marginBottom: '1.5rem'
+              }}>
+                {personalInfo.title}
               </Typography>
-              <Typography variant="h6" paragraph sx={{ opacity: 0.8, mb: 4 }}>
-                I create beautiful and performant web applications using modern technologies.
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  opacity: 0.9,
+                  color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : '#ffffff',
+                  fontSize: '1.1rem',
+                  lineHeight: 1.8,
+                  maxWidth: '800px',
+                  marginBottom: '2.5rem',
+                  textAlign: 'justify'
+                }}
+              >
+                {personalInfo.summary}
               </Typography>
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <Button
                   variant="contained"
-                  color="secondary"
                   size="large"
                   href="#projects"
+                  sx={{
+                    background: isDarkMode 
+                      ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
+                      : '#9333ea',
+                    color: 'white',
+                    '&:hover': {
+                      background: isDarkMode 
+                        ? 'linear-gradient(to right, #45B7D1, #4ECDC4)'
+                        : '#7e22ce'
+                    }
+                  }}
                 >
                   View My Work
                 </Button>
@@ -52,10 +91,10 @@ export default function HeroSection() {
                   href="#contact"
                   size="large"
                   sx={{ 
-                    borderColor: 'white',
-                    color: 'white',
+                    borderColor: isDarkMode ? '#4ECDC4' : 'white',
+                    color: isDarkMode ? '#4ECDC4' : 'white',
                     '&:hover': {
-                      borderColor: 'white',
+                      borderColor: isDarkMode ? '#45B7D1' : 'white',
                       bgcolor: 'rgba(255,255,255,0.1)',
                     }
                   }}
@@ -63,8 +102,7 @@ export default function HeroSection() {
                   Contact Me
                 </Button>
               </Box>
-            </Grid>
-          </AnimatedSection>
+          </Grid>
         </Grid>
       </Container>
     </Box>
