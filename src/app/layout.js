@@ -27,48 +27,6 @@ export const metadata = {
     title: 'Bilal Tosun | Software Developer',
     description: 'Software Developer with expertise in React, Next.js, Angular, and modern web technologies.',
   },
-  icons: {
-    icon: [
-      {
-        url: '/portfolio/favicon.ico',
-        sizes: 'any'
-      },
-      {
-        url: '/portfolio/favicon-16x16.png',
-        type: 'image/png',
-        sizes: '16x16'
-      },
-      {
-        url: '/portfolio/favicon-32x32.png',
-        type: 'image/png',
-        sizes: '32x32'
-      },
-      {
-        url: '/portfolio/android-chrome-192x192.png',
-        type: 'image/png',
-        sizes: '192x192'
-      },
-      {
-        url: '/portfolio/android-chrome-512x512.png',
-        type: 'image/png',
-        sizes: '512x512'
-      }
-    ],
-    apple: [
-      {
-        url: '/portfolio/apple-touch-icon.png',
-        sizes: '180x180',
-        type: 'image/png'
-      }
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/portfolio/safari-pinned-tab.svg',
-        color: '#4ECDC4'
-      }
-    ]
-  },
 };
 
 export const viewport = {
@@ -84,7 +42,15 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="icon" href="/portfolio/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/portfolio/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/portfolio/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/portfolio/apple-touch-icon.png" />
+        <link rel="manifest" href="/portfolio/site.webmanifest" />
+        <link rel="mask-icon" href="/portfolio/safari-pinned-tab.svg" color="#4ECDC4" />
+        <meta name="msapplication-TileColor" content="#4ECDC4" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider>
           <Navbar />
