@@ -4,9 +4,12 @@
 import { styled } from '@mui/material/styles';
 import { Box, Paper, Button, IconButton, Typography, Container, Chip, ListItem, Grid } from '@mui/material';
 
+// Helper function to filter out isDarkMode prop
+const shouldForwardProp = (prop) => prop !== 'isDarkMode';
+
 // Navigation Components
 export const NavContainer = styled('nav', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   display: 'flex',
   justifyContent: 'flex-end',
@@ -24,7 +27,7 @@ export const DesktopNav = styled('div')(({ theme }) => ({
 }));
 
 export const NavButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ theme, isDarkMode }) => ({
   color: isDarkMode ? '#ffffff' : '#333',
   fontWeight: 500,
@@ -56,7 +59,7 @@ export const StyledDrawerListItem = styled(ListItem)({
 });
 
 export const DrawerHeader = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '16px',
   display: 'flex',
@@ -72,7 +75,7 @@ export const DrawerHeader = styled('div', {
 
 // Hero Section Components
 export const HeroSection = styled('section', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   background: isDarkMode
     ? '#121212'
@@ -106,7 +109,7 @@ export const HeroContent = styled(Grid)({
 });
 
 export const HeroTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   fontSize: '4rem',
   fontWeight: 700,
@@ -122,7 +125,7 @@ export const HeroTitle = styled(Typography, {
 }));
 
 export const HeroSubtitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   fontSize: '2.5rem',
   marginBottom: '24px',
@@ -131,7 +134,7 @@ export const HeroSubtitle = styled(Typography, {
 }));
 
 export const HeroDescription = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   fontSize: '1.2rem',
   marginBottom: '32px',
@@ -148,7 +151,7 @@ export const SocialButtons = styled('div')({
 });
 
 export const StyledNavbar = styled('nav', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   position: 'fixed',
   width: '100%',
@@ -162,7 +165,7 @@ export const StyledNavbar = styled('nav', {
 }));
 
 export const StyledMobileMenu = styled(IconButton, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   display: 'flex',
   background: isDarkMode 
@@ -180,7 +183,7 @@ export const StyledMobileMenu = styled(IconButton, {
 }));
 
 export const GradientText = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode, theme }) => ({
   fontWeight: 700,
   background: isDarkMode
@@ -194,7 +197,7 @@ export const GradientText = styled(Typography, {
 }));
 
 export const SocialIconButton = styled(IconButton, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#90CAF9' : '#1E88E5',
   padding: '12px',
@@ -206,7 +209,7 @@ export const SocialIconButton = styled(IconButton, {
 
 // Skills Section
 export const StyledSkillsSection = styled('section', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '80px 0',
   background: isDarkMode 
@@ -217,7 +220,7 @@ export const StyledSkillsSection = styled('section', {
 }));
 
 export const SkillsPaper = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '24px',
   height: '100%',
@@ -234,7 +237,7 @@ export const SkillsPaper = styled(Paper, {
 }));
 
 export const SkillsTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   marginBottom: '24px',
   color: isDarkMode ? '#fff' : '#1a237e',
@@ -252,7 +255,7 @@ export const SkillsContainer = styled('div', {
 });
 
 export const StyledSkillChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   margin: '4px',
   background: isDarkMode 
@@ -270,7 +273,7 @@ export const StyledSkillChip = styled(Chip, {
 }));
 
 export const ToolChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   margin: '4px',
   backgroundColor: isDarkMode ? '#1E88E5' : '#0d47a1',
@@ -285,7 +288,7 @@ export const ToolChip = styled(Chip, {
 
 // Experience Section
 export const ExperienceSection = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '120px 0',
   background: isDarkMode
@@ -294,7 +297,7 @@ export const ExperienceSection = styled('div', {
 }));
 
 export const ExperienceCard = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '40px',
   marginBottom: '32px',
@@ -310,7 +313,7 @@ export const ExperienceCard = styled(Paper, {
 }));
 
 export const JobTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '8px',
@@ -318,21 +321,21 @@ export const JobTitle = styled(Typography, {
 }));
 
 export const CompanyName = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#90caf9' : '#0d47a1',
   marginBottom: '8px',
 }));
 
 export const JobPeriod = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
   marginBottom: '16px',
 }));
 
 export const JobDescription = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   marginBottom: '16px',
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
@@ -348,7 +351,7 @@ export const TechChipsContainer = styled(Box, {
 });
 
 export const TechChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   backgroundColor: isDarkMode ? '#1E88E5' : '#e3f2fd',
   color: isDarkMode ? '#fff' : '#1a237e',
@@ -362,7 +365,7 @@ export const TechChip = styled(Chip, {
 
 // Projects Section
 export const ProjectsSection = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '120px 0',
   background: isDarkMode
@@ -372,7 +375,9 @@ export const ProjectsSection = styled('div', {
   overflow: 'hidden',
 }));
 
-export const ProjectCard = styled(Paper)(({ isDarkMode }) => ({
+export const ProjectCard = styled(Paper, {
+  shouldForwardProp,
+})(({ isDarkMode }) => ({
   padding: '40px',
   height: '100%',
   minHeight: '300px',
@@ -393,7 +398,7 @@ export const ProjectCard = styled(Paper)(({ isDarkMode }) => ({
 }));
 
 export const ProjectTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '8px',
@@ -402,14 +407,14 @@ export const ProjectTitle = styled(Typography, {
 }));
 
 export const ProjectPeriod = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
   marginBottom: '16px',
 }));
 
 export const ProjectDescription = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
   marginBottom: '16px',
@@ -422,7 +427,7 @@ export const ProjectDescription = styled(Typography, {
 }));
 
 export const ProjectTechChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   backgroundColor: isDarkMode ? '#1E88E5' : '#e3f2fd',
   color: isDarkMode ? '#fff' : '#1a237e',
@@ -437,7 +442,7 @@ export const ProjectTechChip = styled(Chip, {
 
 // Education Section
 export const EducationSection = styled('section', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '80px 0',
   background: isDarkMode 
@@ -446,7 +451,7 @@ export const EducationSection = styled('section', {
 }));
 
 export const EducationCard = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '24px',
   marginBottom: '24px',
@@ -462,7 +467,7 @@ export const EducationCard = styled(Paper, {
 }));
 
 export const EducationTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '8px',
@@ -470,7 +475,7 @@ export const EducationTitle = styled(Typography, {
 }));
 
 export const SchoolName = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#90CAF9' : '#1565c0',
   marginBottom: '8px',
@@ -478,14 +483,14 @@ export const SchoolName = styled(Typography, {
 }));
 
 export const EducationPeriod = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'text.secondary',
   fontSize: '0.9rem',
 }));
 
 export const AdditionalSkillsCard = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '24px',
   marginBottom: '24px',
@@ -502,7 +507,7 @@ export const AdditionalSkillsCard = styled(Paper, {
 }));
 
 export const SkillsHeading = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '16px',
@@ -510,7 +515,7 @@ export const SkillsHeading = styled(Typography, {
 }));
 
 export const SoftSkillChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   margin: '4px',
   background: isDarkMode 
@@ -527,7 +532,7 @@ export const SoftSkillChip = styled(Chip, {
 }));
 
 export const LanguageText = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'text.secondary',
   marginBottom: '8px',
@@ -535,7 +540,7 @@ export const LanguageText = styled(Typography, {
 
 // Contact Section
 export const ContactSection = styled('section', {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '80px 0',
   background: isDarkMode
@@ -558,7 +563,7 @@ export const ContactSection = styled('section', {
 }));
 
 export const ContactTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   fontSize: '2.5rem',
   fontWeight: 700,
@@ -581,14 +586,18 @@ export const ContactContainer = styled(Box)({
   zIndex: 1
 });
 
-export const ContactItem = styled(Box)(({ isDarkMode }) => ({
+export const ContactItem = styled(Box, {
+  shouldForwardProp,
+})(({ isDarkMode }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'all 0.3s ease',
 }));
 
-export const ContactLink = styled('a')(({ isDarkMode }) => ({
+export const ContactLink = styled('a', {
+  shouldForwardProp,
+})(({ isDarkMode }) => ({
   color: isDarkMode ? '#90CAF9' : '#ffffff',
   textDecoration: 'none',
   display: 'flex',
@@ -614,7 +623,7 @@ export const ContactButton = styled(Button)({
 });
 
 export const CursorBadgeContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   position: 'fixed',
   bottom: 20,
@@ -643,7 +652,7 @@ export const CursorBadgeContainer = styled(Box, {
 }));
 
 export const CursorBadgeText = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   fontWeight: 500,
   color: isDarkMode ? '#90CAF9' : 'white',
@@ -654,7 +663,7 @@ export const CursorBadgeText = styled(Typography, {
 }));
 
 export const BackToTopButton = styled(IconButton, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   position: 'fixed',
   bottom: 80,

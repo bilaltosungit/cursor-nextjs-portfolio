@@ -19,6 +19,7 @@ export default function HeroSection() {
       color: 'white',
       position: 'relative',
       overflow: 'hidden',
+      transition: 'background 0.3s ease',
       '&::before': {
         content: '""',
         position: 'absolute',
@@ -29,79 +30,87 @@ export default function HeroSection() {
         background: isDarkMode
           ? 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%)'
           : 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+        transition: 'background 0.3s ease',
       },
     }}>
       <Container>
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} md={8}>
-              <Typography variant="h1" component="h1" gutterBottom sx={{
-                color: '#ffffff',
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                fontWeight: 600,
-                background: isDarkMode
-                  ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
-                  : 'none',
-                WebkitBackgroundClip: isDarkMode ? 'text' : 'none',
-                WebkitTextFillColor: isDarkMode ? 'transparent' : '#ffffff',
-              }}>
-                {personalInfo.name}
-              </Typography>
-              <Typography variant="h4" gutterBottom sx={{ 
+            <Typography variant="h1" component="h1" gutterBottom sx={{
+              color: '#ffffff',
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              fontWeight: 600,
+              background: isDarkMode
+                ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
+                : 'none',
+              WebkitBackgroundClip: isDarkMode ? 'text' : 'none',
+              WebkitTextFillColor: isDarkMode ? 'transparent' : '#ffffff',
+              transition: 'all 0.3s ease',
+            }}>
+              {personalInfo.name}
+            </Typography>
+            <Typography variant="h4" gutterBottom sx={{ 
+              opacity: 0.9,
+              color: isDarkMode ? '#90CAF9' : '#ffffff',
+              marginBottom: '1.5rem',
+              transition: 'color 0.3s ease',
+            }}>
+              {personalInfo.title}
+            </Typography>
+            <Typography 
+              variant="body1" 
+              sx={{ 
                 opacity: 0.9,
-                color: isDarkMode ? '#90CAF9' : '#ffffff',
-                marginBottom: '1.5rem'
-              }}>
-                {personalInfo.title}
-              </Typography>
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  opacity: 0.9,
-                  color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : '#ffffff',
-                  fontSize: '1.1rem',
-                  lineHeight: 1.8,
-                  maxWidth: '800px',
-                  marginBottom: '2.5rem',
-                  textAlign: 'justify'
+                color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : '#ffffff',
+                fontSize: '1.1rem',
+                lineHeight: 1.8,
+                maxWidth: '800px',
+                marginBottom: '2.5rem',
+                textAlign: 'justify',
+                transition: 'color 0.3s ease',
+              }}
+            >
+              {personalInfo.summary}
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <Button
+                variant="contained"
+                size="large"
+                href="#projects"
+                sx={{
+                  background: isDarkMode 
+                    ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
+                    : '#9333ea',
+                  color: 'white',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: isDarkMode 
+                      ? 'linear-gradient(to right, #45B7D1, #4ECDC4)'
+                      : '#7e22ce',
+                    transform: 'translateY(-2px)',
+                  }
                 }}
               >
-                {personalInfo.summary}
-              </Typography>
-              <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  href="#projects"
-                  sx={{
-                    background: isDarkMode 
-                      ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
-                      : '#9333ea',
-                    color: 'white',
-                    '&:hover': {
-                      background: isDarkMode 
-                        ? 'linear-gradient(to right, #45B7D1, #4ECDC4)'
-                        : '#7e22ce'
-                    }
-                  }}
-                >
-                  View My Work
-                </Button>
-                <Button
-                  variant="outlined"
-                  href="#contact"
-                  size="large"
-                  sx={{ 
-                    borderColor: isDarkMode ? '#4ECDC4' : 'white',
-                    color: isDarkMode ? '#4ECDC4' : 'white',
-                    '&:hover': {
-                      borderColor: isDarkMode ? '#45B7D1' : 'white',
-                      bgcolor: 'rgba(255,255,255,0.1)',
-                    }
-                  }}
-                >
-                  Contact Me
-                </Button>
-              </Box>
+                View My Work
+              </Button>
+              <Button
+                variant="outlined"
+                href="#contact"
+                size="large"
+                sx={{ 
+                  borderColor: isDarkMode ? '#4ECDC4' : 'white',
+                  color: isDarkMode ? '#4ECDC4' : 'white',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    borderColor: isDarkMode ? '#45B7D1' : 'white',
+                    bgcolor: 'rgba(255,255,255,0.1)',
+                    transform: 'translateY(-2px)',
+                  }
+                }}
+              >
+                Contact Me
+              </Button>
+            </Box>
           </Grid>
         </Grid>
       </Container>

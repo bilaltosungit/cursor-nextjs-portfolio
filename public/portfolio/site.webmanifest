@@ -4,7 +4,7 @@
   "description": "Software Developer with expertise in React, Next.js, Angular, and modern web technologies.",
   "icons": [
     {
-      "src": "/portfolio/favicon.ico",
+      "src": "/portfolio/icon.ico",
       "sizes": "64x64",
       "type": "image/x-icon"
     }

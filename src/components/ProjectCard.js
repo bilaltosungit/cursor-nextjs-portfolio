@@ -4,8 +4,11 @@ import { Box, Paper, Typography, Chip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import AnimatedSection from './AnimatedSection';
 
+// Helper function to filter out isDarkMode prop
+const shouldForwardProp = (prop) => prop !== 'isDarkMode';
+
 const StyledPaper = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   height: '100%',
   display: 'flex',
@@ -40,7 +43,7 @@ const ImageContainer = styled(Box)({
 });
 
 const ContentContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '24px',
   flexGrow: 1,
@@ -49,20 +52,20 @@ const ContentContainer = styled(Box, {
   color: isDarkMode ? '#fff' : 'inherit',
 }));
 
-const StyledTypography = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+const BaseTypography = styled(Typography, {
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
 }));
 
-const ProjectTitle = styled(StyledTypography)({
+const ProjectTitle = styled(BaseTypography)({
   fontSize: '1.5rem',
   fontWeight: 600,
   marginBottom: '8px',
 });
 
-const CompanyInfo = styled(StyledTypography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+const CompanyInfo = styled(BaseTypography, {
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#4ECDC4' : '#FF3366',
   fontSize: '0.95rem',
@@ -73,8 +76,8 @@ const CompanyInfo = styled(StyledTypography, {
   gap: '4px',
 }));
 
-const ProjectDescription = styled(StyledTypography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+const ProjectDescription = styled(BaseTypography, {
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
   marginBottom: '24px',
@@ -91,7 +94,7 @@ const TechStack = styled(Box)({
 });
 
 const StyledChip = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+  shouldForwardProp,
 })(({ isDarkMode }) => ({
   backgroundColor: isDarkMode ? '#1E88E5' : '#e3f2fd',
   color: isDarkMode ? '#fff' : '#1a237e',
