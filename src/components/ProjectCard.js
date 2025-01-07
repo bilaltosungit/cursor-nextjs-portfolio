@@ -55,13 +55,15 @@ const StyledTypography = styled(Typography, {
   color: isDarkMode ? '#fff' : '#1a237e',
 }));
 
-const ProjectTitle = styled(StyledTypography)(({ isDarkMode }) => ({
+const ProjectTitle = styled(StyledTypography)({
   fontSize: '1.5rem',
   fontWeight: 600,
   marginBottom: '8px',
-}));
+});
 
-const CompanyInfo = styled(StyledTypography)(({ isDarkMode }) => ({
+const CompanyInfo = styled(StyledTypography, {
+  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+})(({ isDarkMode }) => ({
   color: isDarkMode ? '#4ECDC4' : '#FF3366',
   fontSize: '0.95rem',
   fontWeight: 500,
@@ -71,7 +73,9 @@ const CompanyInfo = styled(StyledTypography)(({ isDarkMode }) => ({
   gap: '4px',
 }));
 
-const ProjectDescription = styled(StyledTypography)(({ isDarkMode }) => ({
+const ProjectDescription = styled(StyledTypography, {
+  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+})(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
   marginBottom: '24px',
   fontSize: '0.95rem',
