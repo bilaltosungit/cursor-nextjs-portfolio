@@ -112,6 +112,7 @@ export const resumeData = {
       description: "Developed web platforms for train ticketing system including Online Ticketing System and Admin Panel using Angular with NgRx for state management.",
       technologies: ["Angular", "NgRx"],
       companyRef: "Piton Technology",
+      period: "November 2019 - Present",
       image: "/images/tanzania-railways.jpg"
     },
     {

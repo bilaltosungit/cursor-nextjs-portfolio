@@ -49,18 +49,29 @@ const ContentContainer = styled(Box, {
   color: isDarkMode ? '#fff' : 'inherit',
 }));
 
-const ProjectTitle = styled(Typography, {
+const StyledTypography = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'isDarkMode',
 })(({ isDarkMode }) => ({
-  fontSize: '1.5rem',
-  fontWeight: 600,
-  marginBottom: '12px',
   color: isDarkMode ? '#fff' : '#1a237e',
 }));
 
-const ProjectDescription = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDarkMode',
-})(({ isDarkMode }) => ({
+const ProjectTitle = styled(StyledTypography)(({ isDarkMode }) => ({
+  fontSize: '1.5rem',
+  fontWeight: 600,
+  marginBottom: '8px',
+}));
+
+const CompanyInfo = styled(StyledTypography)(({ isDarkMode }) => ({
+  color: isDarkMode ? '#4ECDC4' : '#FF3366',
+  fontSize: '0.95rem',
+  fontWeight: 500,
+  marginBottom: '16px',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+}));
+
+const ProjectDescription = styled(StyledTypography)(({ isDarkMode }) => ({
   color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : 'inherit',
   marginBottom: '24px',
   fontSize: '0.95rem',
@@ -75,7 +86,9 @@ const TechStack = styled(Box)({
   marginTop: 'auto',
 });
 
-const TechChip = styled(Chip)(({ isDarkMode }) => ({
+const StyledChip = styled(Chip, {
+  shouldForwardProp: (prop) => prop !== 'isDarkMode',
+})(({ isDarkMode }) => ({
   backgroundColor: isDarkMode ? '#1E88E5' : '#e3f2fd',
   color: isDarkMode ? '#fff' : '#1a237e',
   '&:hover': {
@@ -98,15 +111,32 @@ const ProjectCard = ({ project, isDarkMode }) => {
           />
         </ImageContainer>
         <ContentContainer isDarkMode={isDarkMode}>
-          <ProjectTitle variant="h5" isDarkMode={isDarkMode}>
+          <ProjectTitle variant="h5" component="div" isDarkMode={isDarkMode}>
             {project.title}
           </ProjectTitle>
-          <ProjectDescription isDarkMode={isDarkMode}>
+          <CompanyInfo component="div" isDarkMode={isDarkMode}>
+            {project.companyRef}
+            {project.period && (
+              <>
+                <span style={{ 
+                  color: isDarkMode ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)',
+                  margin: '0 4px'
+                }}>•</span>
+                <span style={{ 
+                  color: isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
+                  fontSize: '0.9rem'
+                }}>
+                  {project.period}
+                </span>
+              </>
+            )}
+          </CompanyInfo>
+          <ProjectDescription component="div" isDarkMode={isDarkMode}>
             {project.description}
           </ProjectDescription>
           <TechStack>
             {project.technologies.map((tech, index) => (
-              <TechChip
+              <StyledChip
                 key={index}
                 label={tech}
                 isDarkMode={isDarkMode}
