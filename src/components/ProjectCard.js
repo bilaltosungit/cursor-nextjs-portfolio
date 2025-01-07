@@ -107,14 +107,28 @@ const StyledChip = styled(Chip, {
 }));
 
 const ProjectCard = ({ project, isDarkMode }) => {
+  const getImagePath = (path) => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+    return `${basePath}${path}`;
+  };
+
+  const handleImageError = (e) => {
+    console.error(`Failed to load image: ${e.target.src}`);
+    e.target.style.backgroundColor = isDarkMode ? '#2c2c2c' : '#f5f5f5';
+    e.target.style.objectFit = 'contain';
+    e.target.src = `${process.env.NODE_ENV === 'production' ? '/portfolio' : ''}/images/placeholder.jpg`;
+  };
+
   return (
     <AnimatedSection>
       <StyledPaper elevation={3} isDarkMode={isDarkMode}>
         <ImageContainer>
           <img 
-            src={project.image} 
+            src={getImagePath(project.image)} 
             alt={project.title}
             loading="lazy"
+            onError={handleImageError}
+            style={{ backgroundColor: isDarkMode ? '#1a1a1a' : '#f0f0f0' }}
           />
         </ImageContainer>
         <ContentContainer isDarkMode={isDarkMode}>
