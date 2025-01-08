@@ -6,7 +6,7 @@ export const resumeData = {
     email: "bilaltosun7@gmail.com",
     phone: "+90 506 509 82 48",
     location: "Turkey",
-    summary: "I am a Software Developer with experience in different areas since 2020. Starting as a Software QA Engineer and progressing to Front End Development, I work within scrum methodology. I collaborate closely with backend developers, product owners, test teams and QAs on improving projects. I actively learn new technologies and follow communities to bring a fresh perspective and innovation to my work.",
+    summary: "Frontend Developer with experience since 2020, starting in Software QA and transitioning into frontend development. I work within the Scrum methodology, collaborating closely with teams to enhance projects. Passionate about open-source, AI tools, and creating with AI, I continuously explore new technologies to bring innovation and fresh perspectives.",
   },
 
   // Skills

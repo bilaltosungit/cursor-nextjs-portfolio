@@ -60,9 +60,6 @@ export default function Home() {
       color: isDarkMode ? '#ffffff' : '#000000',
       transition: 'all 0.3s ease',
     }}>
-      {/* Add margin-top to hero section to account for fixed navbar */}
-      <Box sx={{ height: '56px' }} />
-
       {/* Hero Section */}
       <Box component="section" id="about">
         <HeroSection />

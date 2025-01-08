@@ -41,7 +41,7 @@ export default function HeroSection() {
           <Grid item xs={12} md={8}>
             <Typography variant="h1" component="h1" gutterBottom sx={{
               color: isDarkMode ? '#4ECDC4' : '#ffffff',
-              fontSize: { xs: '2rem', md: '2.8rem' },
+              fontSize: '36px',
               fontWeight: 600,
               transition: 'all 0.3s ease',
             }}>
@@ -50,7 +50,7 @@ export default function HeroSection() {
             <Typography variant="h4" gutterBottom sx={{ 
               opacity: 0.9,
               color: isDarkMode ? '#90CAF9' : '#ffffff',
-              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              fontSize: { xs: '1rem', md: '1.2rem' },
               marginBottom: '1rem',
               transition: 'color 0.3s ease',
             }}>
@@ -100,7 +100,7 @@ export default function HeroSection() {
               sx={{ 
                 opacity: 0.9,
                 color: isDarkMode ? 'rgba(255, 255, 255, 0.87)' : '#ffffff',
-                fontSize: '1rem',
+                fontSize: '0.9rem',
                 lineHeight: 1.6,
                 maxWidth: '700px',
                 marginBottom: '2rem',

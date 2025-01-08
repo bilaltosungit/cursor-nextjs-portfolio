@@ -186,9 +186,9 @@ export const GradientText = styled(Typography, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#4ECDC4' : '#1a237e',
-  fontSize: { xs: '1.8rem', md: '2.2rem' },
+  fontSize: '36px',
   fontWeight: 600,
-  marginBottom: '2rem',
+  marginBottom: '1.5rem',
   transition: 'color 0.3s ease',
 }));
 
@@ -219,9 +219,12 @@ export const SkillsPaper = styled(Paper, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '1.5rem',
-  height: '100%',
   background: isDarkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.9)',
   transition: 'all 0.3s ease',
+  '@media (max-width: 900px)': {
+    display: 'table-cell',
+    width: '100%',
+  },
   '&:hover': {
     transform: 'translateY(-4px)',
     boxShadow: isDarkMode ? '0 8px 20px rgba(255,255,255,0.08)' : '0 8px 20px rgba(0,0,0,0.08)',
@@ -233,7 +236,7 @@ export const SkillsTitle = styled(Typography, {
 })(({ isDarkMode }) => ({
   marginBottom: '1rem',
   color: isDarkMode ? '#fff' : '#1a237e',
-  fontSize: '1.3rem',
+  fontSize: '24px',
   fontWeight: 600,
 }));
 
@@ -394,7 +397,7 @@ export const ProjectTitle = styled(Typography, {
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '8px',
-  fontSize: '1.5rem',
+  fontSize: '36px',
   fontWeight: 600,
 }));
 
@@ -463,6 +466,7 @@ export const EducationTitle = styled(Typography, {
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
   marginBottom: '8px',
+  fontSize: '24px',
   fontWeight: 600,
 }));
 
@@ -471,6 +475,7 @@ export const SchoolName = styled(Typography, {
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#90CAF9' : '#1565c0',
   marginBottom: '8px',
+  fontSize: '24px',
   fontWeight: 500,
 }));
 
@@ -502,7 +507,8 @@ export const SkillsHeading = styled(Typography, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
   color: isDarkMode ? '#fff' : '#1a237e',
-  marginBottom: '16px',
+  marginBottom: '12px',
+  fontSize: '1.1rem',
   fontWeight: 600,
 }));
 
@@ -557,15 +563,11 @@ export const ContactSection = styled('section', {
 export const ContactTitle = styled(Typography, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
-  fontSize: '2.5rem',
-  fontWeight: 700,
-  marginBottom: '2rem',
+  fontSize: '36px',
+  fontWeight: 600,
+  marginBottom: '1.5rem',
   textAlign: 'center',
-  background: isDarkMode
-    ? 'linear-gradient(to right, #4ECDC4, #45B7D1)'
-    : 'none',
-  WebkitBackgroundClip: isDarkMode ? 'text' : 'none',
-  WebkitTextFillColor: isDarkMode ? 'transparent' : '#ffffff',
+  color: isDarkMode ? '#4ECDC4' : '#ffffff',
 }));
 
 export const ContactContainer = styled(Box)({
