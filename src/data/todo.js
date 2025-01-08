@@ -129,6 +129,12 @@ const todoList = {
         task: 'Include testimonials section',
         priority: 'Medium',
         status: 'Pending'
+      },
+      {
+        id: 'CE-5',
+        task: 'Add social media links (GitHub, Medium)',
+        priority: 'High',
+        status: 'Completed'
       }
     ]
   },

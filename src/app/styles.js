@@ -184,16 +184,12 @@ export const StyledMobileMenu = styled(IconButton, {
 
 export const GradientText = styled(Typography, {
   shouldForwardProp,
-})(({ isDarkMode, theme }) => ({
-  fontWeight: 700,
-  background: isDarkMode
-    ? 'linear-gradient(-45deg, #4ECDC4, #45B7D1, #FF3366, #FF6B6B)'
-    : 'linear-gradient(-45deg, #FF3366, #FF6B6B, #4ECDC4, #45B7D1)',
-  backgroundSize: '300% 300%',
-  animation: 'gradient 5s ease infinite',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  textShadow: isDarkMode ? '0 0 30px rgba(78, 205, 196, 0.3)' : 'none',
+})(({ isDarkMode }) => ({
+  color: isDarkMode ? '#4ECDC4' : '#1a237e',
+  fontSize: { xs: '1.8rem', md: '2.2rem' },
+  fontWeight: 600,
+  marginBottom: '2rem',
+  transition: 'color 0.3s ease',
 }));
 
 export const SocialIconButton = styled(IconButton, {
@@ -222,26 +218,22 @@ export const StyledSkillsSection = styled('section', {
 export const SkillsPaper = styled(Paper, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
-  padding: '24px',
+  padding: '1.5rem',
   height: '100%',
-  background: isDarkMode ? 'rgba(30, 30, 30, 0.8)' : 'rgba(255, 255, 255, 0.8)',
-  backdropFilter: 'blur(10px)',
-  borderRadius: '8px',
-  border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(255, 255, 255, 0.3)',
+  background: isDarkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.9)',
   transition: 'all 0.3s ease',
   '&:hover': {
     transform: 'translateY(-4px)',
-    boxShadow: isDarkMode ? '0 8px 30px rgba(255,255,255,0.12)' : '0 8px 30px rgba(0,0,0,0.12)',
-    background: isDarkMode ? 'rgba(40, 40, 40, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+    boxShadow: isDarkMode ? '0 8px 20px rgba(255,255,255,0.08)' : '0 8px 20px rgba(0,0,0,0.08)',
   },
 }));
 
 export const SkillsTitle = styled(Typography, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
-  marginBottom: '24px',
+  marginBottom: '1rem',
   color: isDarkMode ? '#fff' : '#1a237e',
-  fontSize: '1.5rem',
+  fontSize: '1.3rem',
   fontWeight: 600,
 }));
 
@@ -250,8 +242,8 @@ export const SkillsContainer = styled('div', {
 })({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '12px',
-  marginTop: '16px',
+  gap: '8px',
+  marginTop: '12px',
 });
 
 export const StyledSkillChip = styled(Chip, {

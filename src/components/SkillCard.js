@@ -9,26 +9,34 @@ export default function SkillCard({ skill, index }) {
       <Paper 
         elevation={0}
         sx={{ 
-          p: 4, 
+          p: 2.5, 
           textAlign: 'center',
           height: '100%',
           border: '1px solid',
           borderColor: 'grey.200',
           transition: 'all 0.3s ease-in-out',
           '&:hover': {
-            transform: 'translateY(-10px)',
+            transform: 'translateY(-5px)',
             borderColor: 'primary.main',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+            boxShadow: '0 10px 20px rgba(0,0,0,0.08)',
           },
         }}
       >
-        <Typography variant="h1" gutterBottom sx={{ mb: 2 }}>
+        <Typography variant="h2" gutterBottom sx={{ 
+          mb: 1.5,
+          fontSize: '2rem'
+        }}>
           {skill.icon}
         </Typography>
-        <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+        <Typography variant="subtitle1" gutterBottom sx={{ 
+          fontWeight: 600,
+          fontSize: '1rem'
+        }}>
           {skill.name}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" sx={{
+          fontSize: '0.875rem'
+        }}>
           {skill.level}
         </Typography>
       </Paper>

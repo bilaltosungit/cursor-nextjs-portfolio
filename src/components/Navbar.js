@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from 'next/link';
 import { useTheme } from '@/app/ThemeContext';
 import {
   StyledNavbar,
@@ -57,6 +59,14 @@ export default function Navbar() {
                   {item}
                 </NavButton>
               ))}
+            </DesktopNav>
+
+            {/* Theme Toggle - Visible on both Desktop and Mobile */}
+            <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center',
+              gap: 1
+            }}>
               <IconButton
                 onClick={toggleTheme}
                 sx={{
@@ -69,7 +79,7 @@ export default function Navbar() {
               >
                 {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
               </IconButton>
-            </DesktopNav>
+            </Box>
 
             {/* Mobile Tab Navigation */}
             <Box
@@ -128,15 +138,6 @@ export default function Navbar() {
                   ))}
                 </Tabs>
               </Box>
-              <IconButton
-                onClick={toggleTheme}
-                sx={{
-                  color: isDarkMode ? '#FFD93D' : '#333',
-                  padding: '8px',
-                }}
-              >
-                {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
-              </IconButton>
             </Box>
           </NavContainer>
         </Container>
