@@ -3,6 +3,8 @@
 import { ThemeProvider } from '@/app/ThemeContext';
 import Navbar from '@/components/Navbar';
 import ScrollProgress from '@/components/ScrollProgress';
+import { CursorBadgeContainer, CursorBadgeText } from '@/app/styles';
+import Link from 'next/link';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,6 +25,11 @@ export default function RootLayout({ children }) {
           <ScrollProgress />
           <Navbar />
           {children}
+          <Link href="https://cursor.sh" target="_blank" style={{ textDecoration: 'none' }}>
+            <CursorBadgeContainer>
+              <CursorBadgeText>⚡ Built with Cursor</CursorBadgeText>
+            </CursorBadgeContainer>
+          </Link>
         </ThemeProvider>
       </body>
     </html>

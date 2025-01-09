@@ -617,45 +617,101 @@ export const ContactButton = styled(Button)({
   transition: 'all 0.3s ease',
 });
 
-export const CursorBadgeContainer = styled(Box, {
-  shouldForwardProp,
-})(({ isDarkMode }) => ({
+export const CursorBadgeContainer = styled(Box)(({ theme }) => ({
+  '@keyframes gradient': {
+    '0%': {
+      backgroundPosition: '0% 50%'
+    },
+    '50%': {
+      backgroundPosition: '100% 50%'
+    },
+    '100%': {
+      backgroundPosition: '0% 50%'
+    }
+  },
+  '@keyframes shine': {
+    '0%': {
+      backgroundPosition: '0% 50%',
+      opacity: 0.9
+    },
+    '50%': {
+      backgroundPosition: '100% 50%',
+      opacity: 1
+    },
+    '100%': {
+      backgroundPosition: '0% 50%',
+      opacity: 0.9
+    }
+  },
   position: 'fixed',
-  bottom: 20,
-  right: 20,
+  bottom: '20px',
+  right: '20px',
   zIndex: 1000,
   padding: '8px 16px',
   display: 'flex',
   alignItems: 'center',
   gap: '8px',
-  background: isDarkMode ? '#1a1a1a' : 'linear-gradient(-45deg, #FF3366, #FF6B6B, #4ECDC4, #45B7D1)',
+  background: 'linear-gradient(-45deg, #FF3366, #FF6B6B, #4ECDC4, #45B7D1)',
   backgroundSize: '300% 300%',
-  animation: isDarkMode ? 'none' : 'gradient 5s ease infinite',
-  color: isDarkMode ? '#90CAF9' : 'white',
+  animation: 'gradient 5s ease infinite, shine 3s ease-in-out infinite',
+  color: 'white',
   borderRadius: '20px',
   cursor: 'pointer',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  transition: 'all 0.3s ease',
   backdropFilter: 'blur(10px)',
-  boxShadow: isDarkMode ? '0 4px 15px rgba(255,255,255,0.05)' : '0 4px 15px rgba(0,0,0,0.1)',
-  border: isDarkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(255,255,255,0.2)',
+  boxShadow: '0 4px 15px rgba(255, 51, 102, 0.3), 0 0 30px rgba(78, 205, 196, 0.2)',
+  border: '1px solid rgba(255, 255, 255, 0.3)',
   textDecoration: 'none',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: '-2px',
+    left: '-2px',
+    right: '-2px',
+    bottom: '-2px',
+    background: 'linear-gradient(-45deg, #FF3366, #FF6B6B, #4ECDC4, #45B7D1)',
+    backgroundSize: '300% 300%',
+    animation: 'gradient 5s ease infinite',
+    borderRadius: '22px',
+    zIndex: -1,
+    opacity: 0.5,
+    filter: 'blur(8px)',
+  },
   '&:hover': {
-    transform: 'translateY(-2px)',
-    boxShadow: isDarkMode ? '0 8px 30px rgba(255,255,255,0.1)' : '0 8px 30px rgba(0,0,0,0.2)',
-    border: isDarkMode ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(255,255,255,0.3)',
+    transform: 'translateY(-2px) scale(1.02)',
+    boxShadow: '0 8px 30px rgba(255, 51, 102, 0.4), 0 0 50px rgba(78, 205, 196, 0.3)',
+    border: '1px solid rgba(255, 255, 255, 0.5)',
+    '&::before': {
+      opacity: 0.7,
+      filter: 'blur(12px)',
+    }
   },
 }));
 
-export const CursorBadgeText = styled(Typography, {
-  shouldForwardProp,
-})(({ isDarkMode }) => ({
-  fontWeight: 500,
-  color: isDarkMode ? '#90CAF9' : 'white',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '4px',
+export const CursorBadgeText = styled(Typography)({
   fontSize: '0.875rem',
-}));
+  fontWeight: 600,
+  letterSpacing: '0.5px',
+  textShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
+  background: 'linear-gradient(to right, #ffffff, #e0e0e0)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+});
+
+// Add keyframes for gradient animation
+const keyframes = {
+  gradient: {
+    '0%': {
+      backgroundPosition: '0% 50%'
+    },
+    '50%': {
+      backgroundPosition: '100% 50%'
+    },
+    '100%': {
+      backgroundPosition: '0% 50%'
+    }
+  }
+};
 
 export const BackToTopButton = styled(IconButton, {
   shouldForwardProp,
