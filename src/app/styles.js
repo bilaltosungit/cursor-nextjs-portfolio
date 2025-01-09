@@ -215,20 +215,29 @@ export const StyledSkillsSection = styled('section', {
   overflow: 'hidden',
 }));
 
+// Common card animation mixin
+const cardAnimation = (isDarkMode) => ({
+  transform: 'translateY(0)',
+  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+  '&:hover': {
+    transform: 'translateY(-8px)',
+    boxShadow: isDarkMode 
+      ? '0 8px 30px rgba(255,255,255,0.12)' 
+      : '0 8px 30px rgba(0,0,0,0.12)',
+  }
+});
+
 export const SkillsPaper = styled(Paper, {
   shouldForwardProp,
 })(({ isDarkMode }) => ({
   padding: '1.5rem',
   background: isDarkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.9)',
   transition: 'all 0.3s ease',
+  ...cardAnimation(isDarkMode),
   '@media (max-width: 900px)': {
     display: 'table-cell',
     width: '100%',
-  },
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: isDarkMode ? '0 8px 20px rgba(255,255,255,0.08)' : '0 8px 20px rgba(0,0,0,0.08)',
-  },
+  }
 }));
 
 export const SkillsTitle = styled(Typography, {
@@ -257,6 +266,7 @@ export const StyledSkillChip = styled(Chip, {
     ? 'linear-gradient(45deg, #1E88E5, #64B5F6)'
     : 'linear-gradient(45deg, #FF3366, #FF6B6B)',
   color: 'white',
+  cursor: 'pointer',
   '&:hover': {
     background: isDarkMode
       ? 'linear-gradient(45deg, #64B5F6, #1E88E5)'
@@ -264,7 +274,6 @@ export const StyledSkillChip = styled(Chip, {
     transform: 'translateY(-2px)',
   },
   transition: 'all 0.3s ease',
-  cursor: 'default',
 }));
 
 export const ToolChip = styled(Chip, {
@@ -382,14 +391,10 @@ export const ProjectCard = styled(Paper, {
   gap: '16px',
   background: isDarkMode ? 'rgba(30, 30, 30, 0.9)' : 'rgba(255, 255, 255, 0.9)',
   borderLeft: '4px solid #4ECDC4',
-  transition: 'all 0.3s ease',
+  ...cardAnimation(isDarkMode),
   '&:hover': {
-    transform: 'translateY(-4px)',
     borderLeft: '4px solid #FF3366',
-    boxShadow: isDarkMode 
-      ? '0 8px 30px rgba(78, 205, 196, 0.1)'
-      : '0 8px 30px rgba(0,0,0,0.12)',
-  },
+  }
 }));
 
 export const ProjectTitle = styled(Typography, {
@@ -454,11 +459,7 @@ export const EducationCard = styled(Paper, {
   backdropFilter: 'blur(10px)',
   borderRadius: '8px',
   border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: isDarkMode ? '0 8px 30px rgba(255,255,255,0.12)' : '0 8px 30px rgba(0,0,0,0.12)',
-  },
+  ...cardAnimation(isDarkMode)
 }));
 
 export const EducationTitle = styled(Typography, {

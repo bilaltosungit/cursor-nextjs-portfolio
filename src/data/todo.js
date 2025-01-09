@@ -91,9 +91,48 @@ const todoList = {
       },
       {
         id: 'UX-2',
-        task: 'Implement scroll progress bar',
-        priority: 'Low',
-        status: 'Pending'
+        tasks: [
+          {
+            title: "Implement accordion animation for Experience section in mobile view",
+            priority: "High",
+            status: "Completed"
+          },
+          {
+            title: "Add hover effects for social media icons in Hero section",
+            priority: "Medium",
+            status: "Completed"
+          },
+          {
+            title: "Improve card transitions and animations across all sections",
+            priority: "Medium",
+            status: "Completed"
+          },
+          {
+            title: "Optimize loading performance for project images",
+            priority: "High",
+            status: "Completed"
+          },
+          {
+            title: "Add scroll progress indicator for long sections",
+            priority: "Low",
+            status: "Completed"
+          },
+          {
+            title: "Implement skeleton loading for dynamic content",
+            priority: "Medium",
+            status: "Completed"
+          },
+          {
+            title: "Add tooltips for technology stack chips",
+            priority: "Low",
+            status: "Completed"
+          },
+          {
+            title: "Enhance mobile navigation menu transitions",
+            priority: "Medium",
+            status: "Completed"
+          }
+        ]
       },
       {
         id: 'UX-3',
