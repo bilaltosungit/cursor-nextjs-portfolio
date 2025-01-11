@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, IconButton, Tabs, Tab, Box } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -16,23 +16,64 @@ import {
 export default function Navbar() {
   const router = useRouter();
   const [value, setValue] = useState(0);
+  const [activeSection, setActiveSection] = useState('');
   const { isDarkMode, toggleTheme } = useTheme();
+  const sections = ['about', 'skills', 'experience', 'projects', 'contact'];
 
+  // Handle scroll position and update active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Check if we're at the bottom of the page
+      if (scrollPosition + windowHeight >= documentHeight - 50) {
+        setActiveSection('contact');
+        setValue(sections.indexOf('contact'));
+        return;
+      }
+
+      // Otherwise check each section
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const top = element.offsetTop - 100;
+          const height = element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section);
+            setValue(sections.indexOf(section));
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections]);
+
+  // Handle mobile tab change
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
-    const items = ['about', 'skills', 'experience', 'projects', 'contact'];
-    handleNavigation(items[newValue]);
+    const targetSection = sections[newValue];
+    const element = document.getElementById(targetSection);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(targetSection);
+    }
   };
 
+  // Handle desktop navigation
   const handleNavigation = (item) => {
-    router.push('/');
-    // Wait for next tick to ensure we're on the home page
-    setTimeout(() => {
-      const element = document.getElementById(item);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    const sectionIndex = sections.indexOf(item);
+    setValue(sectionIndex);
+    const element = document.getElementById(item);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(item);
+    }
   };
 
   return (
@@ -53,13 +94,21 @@ export default function Navbar() {
                   key={item}
                   onClick={() => handleNavigation(item.toLowerCase())}
                   isDarkMode={isDarkMode}
+                  sx={{
+                    color: activeSection === item.toLowerCase() ? 
+                      (isDarkMode ? '#4ECDC4' : '#FF3366') : 
+                      (isDarkMode ? '#ffffff' : '#333'),
+                    borderBottom: activeSection === item.toLowerCase() ? 
+                      `2px solid ${isDarkMode ? '#4ECDC4' : '#FF3366'}` : 
+                      'none',
+                  }}
                 >
                   {item}
                 </NavButton>
               ))}
             </DesktopNav>
 
-            {/* Theme Toggle - Visible on both Desktop and Mobile */}
+            {/* Theme Toggle */}
             <Box sx={{ 
               display: 'flex', 
               alignItems: 'center',

@@ -125,14 +125,36 @@ export default function Home() {
       </Box>
 
       {/* Experience Section */}
-      <Box component="section" id="experience" sx={{ py: 8, bgcolor: isDarkMode ? 'rgba(18, 18, 18, 0.8)' : 'rgba(255, 255, 255, 0.8)' }}>
+      <Box 
+        component="section" 
+        id="experience" 
+        sx={{ py: 8, bgcolor: isDarkMode ? 'rgba(18, 18, 18, 0.8)' : 'rgba(255, 255, 255, 0.8)' }}
+        role="region"
+        aria-label="Experience"
+      >
         <Container maxWidth="xl">
-          <GradientText variant="h3" sx={{ mb: 4 }} isDarkMode={isDarkMode}>
+          <GradientText 
+            variant="h3" 
+            sx={{ mb: 4 }} 
+            isDarkMode={isDarkMode}
+            component="h2"
+          >
             Experience
           </GradientText>
-          <Grid container spacing={3}>
+          <Grid 
+            container 
+            spacing={3}
+            role="list"
+            aria-label="Experience list"
+          >
             {experience.map((job, index) => (
-              <Grid item xs={12} sm={6} key={index}>
+              <Grid 
+                item 
+                xs={12} 
+                sm={6} 
+                key={index}
+                role="listitem"
+              >
                 <ExperienceCard job={job} index={index} isDarkMode={isDarkMode} />
               </Grid>
             ))}
@@ -141,14 +163,36 @@ export default function Home() {
       </Box>
 
       {/* Projects Section */}
-      <Box component="section" id="projects" sx={{ py: 8 }}>
+      <Box 
+        component="section" 
+        id="projects" 
+        sx={{ py: 8 }}
+        role="region"
+        aria-label="Projects"
+      >
         <Container maxWidth="xl">
-          <GradientText variant="h3" sx={{ mb: 4 }} isDarkMode={isDarkMode}>
+          <GradientText 
+            variant="h3" 
+            sx={{ mb: 4 }} 
+            isDarkMode={isDarkMode}
+            component="h2"
+          >
             Projects
           </GradientText>
-          <Grid container spacing={3}>
+          <Grid 
+            container 
+            spacing={3}
+            role="list"
+            aria-label="Project list"
+          >
             {projects.map((project, index) => (
-              <Grid item xs={12} sm={6} key={index}>
+              <Grid 
+                item 
+                xs={12} 
+                sm={6} 
+                key={index}
+                role="listitem"
+              >
                 <ProjectCard project={project} index={index} isDarkMode={isDarkMode} />
               </Grid>
             ))}
@@ -157,53 +201,99 @@ export default function Home() {
       </Box>
 
       {/* Education Section */}
-      <EducationSection id="education" isDarkMode={isDarkMode}>
+      <EducationSection 
+        id="education" 
+        isDarkMode={isDarkMode}
+        role="region"
+        aria-label="Education and Skills"
+      >
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             {/* Education */}
             <Grid item xs={12} md={6}>
-              <GradientText variant="h3" sx={{ mb: 4 }} isDarkMode={isDarkMode}>
+              <GradientText 
+                variant="h3" 
+                sx={{ mb: 4 }} 
+                isDarkMode={isDarkMode}
+                component="h2"
+              >
                 Education
               </GradientText>
-              {education.map((edu, index) => (
-                <EducationCard key={index} elevation={3} isDarkMode={isDarkMode}>
-                  <EducationTitle variant="h5" isDarkMode={isDarkMode}>{edu.degree}</EducationTitle>
-                  <SchoolName variant="h6" isDarkMode={isDarkMode}>{edu.school}</SchoolName>
-                  <EducationPeriod variant="subtitle1" isDarkMode={isDarkMode}>
-                    {edu.period} | {edu.location}
-                  </EducationPeriod>
-                </EducationCard>
-              ))}
+              <Box role="list" aria-label="Education list">
+                {education.map((edu, index) => (
+                  <Box key={index} role="listitem">
+                    <EducationCard elevation={3} isDarkMode={isDarkMode}>
+                      <EducationTitle variant="h5" isDarkMode={isDarkMode}>{edu.degree}</EducationTitle>
+                      <SchoolName variant="h6" isDarkMode={isDarkMode}>{edu.school}</SchoolName>
+                      <EducationPeriod 
+                        variant="subtitle1" 
+                        isDarkMode={isDarkMode}
+                        aria-label={`Period: ${edu.period}, Location: ${edu.location}`}
+                      >
+                        {edu.period} | {edu.location}
+                      </EducationPeriod>
+                    </EducationCard>
+                  </Box>
+                ))}
+              </Box>
             </Grid>
-            {/* Soft Skills & Languages */}
+            {/* Additional Skills */}
             <Grid item xs={12} md={6}>
-              <GradientText variant="h3" sx={{ mb: 4 }} isDarkMode={isDarkMode}>
+              <GradientText 
+                variant="h3" 
+                sx={{ mb: 4 }} 
+                isDarkMode={isDarkMode}
+                component="h2"
+              >
                 Additional Skills
               </GradientText>
-              <AdditionalSkillsCard elevation={3} isDarkMode={isDarkMode}>
+              <AdditionalSkillsCard 
+                elevation={3} 
+                isDarkMode={isDarkMode}
+                role="region"
+                aria-label="Soft Skills"
+              >
                 <SkillsHeading variant="h5" isDarkMode={isDarkMode}>Soft Skills</SkillsHeading>
                 <Box sx={{ 
                   display: 'flex',
                   flexWrap: 'wrap',
                   gap: 1,
                   mt: 2
-                }}>
+                }}
+                role="list"
+                aria-label="Soft skills list"
+                >
                   {additionalSkills.softSkills.map((skill) => (
                     <SoftSkillChip
                       key={skill}
                       label={skill}
                       isDarkMode={isDarkMode}
+                      role="listitem"
+                      aria-label={`Soft skill: ${skill}`}
                     />
                   ))}
                 </Box>
               </AdditionalSkillsCard>
-              <AdditionalSkillsCard elevation={3} isDarkMode={isDarkMode}>
+              <AdditionalSkillsCard 
+                elevation={3} 
+                isDarkMode={isDarkMode}
+                role="region"
+                aria-label="Languages"
+              >
                 <SkillsHeading variant="h5" isDarkMode={isDarkMode}>Languages</SkillsHeading>
-                {additionalSkills.languages.map((lang) => (
-                  <LanguageText key={lang.name} variant="body1" isDarkMode={isDarkMode}>
-                    {lang.name}: {lang.level}
-                  </LanguageText>
-                ))}
+                <Box role="list" aria-label="Languages list">
+                  {additionalSkills.languages.map((lang) => (
+                    <LanguageText 
+                      key={lang.name} 
+                      variant="body1" 
+                      isDarkMode={isDarkMode}
+                      role="listitem"
+                      aria-label={`${lang.name}: ${lang.level}`}
+                    >
+                      {lang.name}: {lang.level}
+                    </LanguageText>
+                  ))}
+                </Box>
               </AdditionalSkillsCard>
             </Grid>
           </Grid>

@@ -202,7 +202,7 @@ const todoList = {
         id: 'TI-4',
         task: 'Improve accessibility with ARIA labels',
         priority: 'High',
-        status: 'Pending'
+        status: 'Completed'
       }
     ]
   },

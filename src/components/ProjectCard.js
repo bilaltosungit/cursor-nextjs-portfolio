@@ -106,9 +106,14 @@ const ImageContainer = styled(Box)({
 
 export default function ProjectCard({ project, index, isDarkMode }) {
   const MobileView = () => (
-    <StyledAccordion isDarkMode={isDarkMode}>
+    <StyledAccordion 
+      isDarkMode={isDarkMode}
+      aria-label={`Project: ${project.title}`}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ color: isDarkMode ? '#fff' : '#1a237e' }} />}
+        aria-controls={`project-${index}-content`}
+        id={`project-${index}-header`}
       >
         <Box>
           <ProjectTitle variant="h6" isDarkMode={isDarkMode}>{project.title}</ProjectTitle>
@@ -118,11 +123,14 @@ export default function ProjectCard({ project, index, isDarkMode }) {
           </Period>
         </Box>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails
+        id={`project-${index}-content`}
+        aria-labelledby={`project-${index}-header`}
+      >
         <ImageContainer>
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`Screenshot of ${project.title} project`}
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
             priority={index < 2}
@@ -137,12 +145,16 @@ export default function ProjectCard({ project, index, isDarkMode }) {
         >
           {project.description}
         </Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+        <Box 
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}
+          aria-label="Technologies used"
+        >
           {project.technologies.map((tech) => (
             <TechChip
               key={tech}
               label={tech}
               isDarkMode={isDarkMode}
+              aria-label={`Technology: ${tech}`}
             />
           ))}
         </Box>
@@ -151,17 +163,21 @@ export default function ProjectCard({ project, index, isDarkMode }) {
   );
 
   const DesktopView = () => (
-    <StyledPaper isDarkMode={isDarkMode}>
+    <StyledPaper 
+      isDarkMode={isDarkMode}
+      aria-label={`Project: ${project.title}`}
+      role="article"
+    >
       <Box sx={{ p: 3 }}>
         <ProjectTitle variant="h6" isDarkMode={isDarkMode}>{project.title}</ProjectTitle>
         <CompanyName variant="subtitle1" isDarkMode={isDarkMode}>{project.companyRef}</CompanyName>
-        <Period variant="body2" isDarkMode={isDarkMode}>
+        <Period variant="body2" isDarkMode={isDarkMode} aria-label={`Project period: ${project.period}`}>
           {project.period}
         </Period>
         <ImageContainer>
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`Screenshot of ${project.title} project`}
             fill
             sizes="(max-width: 900px) 100vw, 50vw"
             priority={index < 2}
@@ -176,12 +192,16 @@ export default function ProjectCard({ project, index, isDarkMode }) {
         >
           {project.description}
         </Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+        <Box 
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}
+          aria-label="Technologies used"
+        >
           {project.technologies.map((tech) => (
             <TechChip
               key={tech}
               label={tech}
               isDarkMode={isDarkMode}
+              aria-label={`Technology: ${tech}`}
             />
           ))}
         </Box>
@@ -191,7 +211,7 @@ export default function ProjectCard({ project, index, isDarkMode }) {
 
   return (
     <AnimatedSection delay={index * 0.1}>
-      <Box>
+      <Box role="region" aria-label="Project details">
         <MobileView />
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <DesktopView />
