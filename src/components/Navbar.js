@@ -1,8 +1,7 @@
 'use client';
 
 import { Container, IconButton, Tabs, Tab, Box } from '@mui/material';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useMemo } from 'react';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTheme } from '@/app/ThemeContext';
@@ -14,11 +13,11 @@ import {
 } from '@/app/styles';
 
 export default function Navbar() {
-  const router = useRouter();
   const [value, setValue] = useState(0);
   const [activeSection, setActiveSection] = useState('');
   const { isDarkMode, toggleTheme } = useTheme();
-  const sections = ['about', 'skills', 'experience', 'projects', 'contact'];
+  
+  const sections = useMemo(() => ['about', 'skills', 'experience', 'projects', 'contact'], []);
 
   // Handle scroll position and update active section
   useEffect(() => {
