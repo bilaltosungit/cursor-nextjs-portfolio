@@ -1,3 +1,5 @@
+import { getImagePath } from '@/utils/paths';
+
 export const resumeData = {
   // Personal Information
   personalInfo: {
@@ -97,7 +99,7 @@ export const resumeData = {
       technologies: ["React", "Next.js", "Material UI"],
       period: "January 2022 - Present",
       companyRef: "Gelir İdaresi Başkanlığı",
-      image: "/images/digital-tax.jpg"
+      image: getImagePath("/images/digital-tax.jpg")
     },
     {
       title: "Videotron's Helix TV and Internet Service",
@@ -105,7 +107,7 @@ export const resumeData = {
       technologies: ["Angular", "NGXS"],
       period: "November 2019 - Present",
       companyRef: "ETIYA",
-      image: "/images/helix-tv.jpg"
+      image: getImagePath("/images/helix-tv.jpg")
     },
     {
       title: "Tanzania Railways Corporations Ticketing System",
@@ -113,7 +115,7 @@ export const resumeData = {
       technologies: ["Angular", "NgRx"],
       companyRef: "Piton Technology",
       period: "November 2019 - Present",
-      image: "/images/tanzania-railways.jpg"
+      image: getImagePath("/images/tanzania-railways.jpg")
     },
     {
       title: "BURULAŞ Fleet Management System",
@@ -121,7 +123,7 @@ export const resumeData = {
       technologies: ["Angular", "OpenLayers"],
       period: "February 2019 - April 2020",
       companyRef: "Piton Technology",
-      image: "/images/burulas.jpg"
+      image: getImagePath("/images/burulas.jpg")
     }
   ],
 

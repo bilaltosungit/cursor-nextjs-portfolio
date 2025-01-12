@@ -13,12 +13,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="preload"
-          href="/images/profile.jpg"
-          as="image"
-          type="image/jpeg"
-        />
       </head>
       <body className={inter.className} style={{ margin: 0, padding: 0 }}>
         <ThemeProvider>
