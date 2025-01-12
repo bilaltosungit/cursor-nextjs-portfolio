@@ -4,7 +4,7 @@
   "description": "Software Developer with expertise in React, Next.js, Angular, and modern web technologies.",
   "icons": [
     {
-      "src": "/portfolio/icon.ico",
+      "src": "/cursor-nextjs-portfolio/icon.ico",
       "sizes": "64x64",
       "type": "image/x-icon"
     }
@@ -12,6 +12,6 @@
   "theme_color": "#4ECDC4",
   "background_color": "#121212",
   "display": "standalone",
-  "start_url": "/portfolio/",
-  "scope": "/portfolio/"
+  "start_url": "/cursor-nextjs-portfolio/",
+  "scope": "/cursor-nextjs-portfolio/"
 } 
